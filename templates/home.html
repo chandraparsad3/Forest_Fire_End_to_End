@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+</head>
+<body>
+    <h2>FWI Prediction</h2>
+    <form action="{{ url_for('predict_data') }}" method="POST">
+        <table>
+            <tr>
+                <td><label for="temperature">Temperature:</label></td>
+                <td><input type="text" id="temperature" name="Temperature" required></td>
+                <td><label for="rh">RH:</label></td>
+                <td><input type="text" id="rh" name="RH" required></td>
+            </tr>
+            <tr>
+                <td><label for="ws">Ws:</label></td>
+                <td><input type="text" id="ws" name="Ws" required></td>
+                <td><label for="rain">Rain:</label></td>
+                <td><input type="text" id="rain" name="Rain" required></td>
+            </tr>
+            <tr>
+                <td><label for="ffmc">FFMC:</label></td>
+                <td><input type="text" id="ffmc" name="FFMC" required></td>
+                <td><label for="dmc">DMC:</label></td>
+                <td><input type="text" id="dmc" name="DMC" required></td>
+            </tr>
+            <tr>
+                <td><label for="classes">Classes:</label></td>
+                <td><input type="text" id="classes" name="Classes" required></td>
+                <td><label for="isi">ISI:</label></td>
+                <td><input type="text" id="isi" name="ISI" required></td>
+            </tr>
+            <tr>
+                <td><label for="region">Region:</label></td>
+                <td><input type="text" id="region" name="Region" required></td>
+                <td colspan="2">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+                </td>
+            </tr>
+        </table>
+        {% if result is not none %}
+            <h1>FWI Prediction is: {{ result }}</h1>
+        {% endif %}
+    </form>
+</body>
+</html>
